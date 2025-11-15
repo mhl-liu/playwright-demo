@@ -1,0 +1,27 @@
+{
+    "validCases": [
+        {
+            "testcasename": "create route with valid path /",
+            "path": "/"
+        },
+        {
+            "testcasename": "create route with specific method ",
+            "method": "PUT"
+        }
+    ],
+    "invalidCases": [
+        {
+            "testcasename": "invalidcase_input is empty",
+            "expectedError": "Name is required"
+        },
+        {
+            "testcasename": "invalidcase_securitychck",
+            "name": "<script>alert<1></script>"
+        },
+        {
+            "testcasename": "invalidcase_invalidurlformat",
+            "url": "not-a-url",
+            "expectedError": "The URL must follow a valid format. Example: https://api.kong-air.com/flights"
+        }
+    ]
+}

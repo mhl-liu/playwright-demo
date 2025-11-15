@@ -1,0 +1,28 @@
+{
+    "source": {
+        "include": [
+            "pages/"
+        ],
+        "exclude": [
+            "node_modules"
+        ],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "opts": {
+        "destination": "docs/",
+        "recurse": true,
+        "template": "node_modules/minami",
+        "encoding": "utf8"
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true,
+        "default": {
+            "outputSourceFiles": true
+        }
+    }
+}
