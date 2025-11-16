@@ -56,3 +56,8 @@ jobs:
         with:
           name: allure-report
           path: allure-report/
+
+      # 8. Stop Docker services
+      - name: Stop Docker services
+        if: always() 
+        run: docker compose down
