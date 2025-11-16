@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 import { config } from './utils/globalConfig.js';
+import fs from 'fs';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -8,6 +9,18 @@ import { config } from './utils/globalConfig.js';
 // import dotenv from 'dotenv';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
+const timestamp = new Date()
+  .toISOString()
+  .replace(/[-:T]/g, '')
+  .slice(0, 14); // yyyymmddHHMMSS
+
+const allureOutputDir = `allure-history/${timestamp}`;
+
+if (!fs.existsSync('allure-history')) {
+  fs.mkdirSync('allure-history');
+}
+
+
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -23,10 +36,11 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  // reporter: 'html',
+  // reporter: 'html',['html', { outputFolder: 'test-report', open: 'never' }]
+  // reporter: 'allure',['allure-playwright', { outputFolder: allureOutputDir }]
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'test-report', open: 'never' }]
+    ['allure-playwright', { outputFolder: 'allure-results', detail: true, suiteTitle: true, }],
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -52,15 +66,15 @@ export default defineConfig({
 
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {

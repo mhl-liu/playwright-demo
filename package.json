@@ -2,7 +2,9 @@
   "name": "playwright-demo",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:allure": "npx playwright test && allure generate allure-results --clean -o allure-report && allure open allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -10,6 +12,7 @@
   "devDependencies": {
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.10.0",
+    "allure-playwright": "^3.4.2",
     "docdash": "^2.0.2",
     "jsdoc": "^4.0.5",
     "minami": "^1.2.3",

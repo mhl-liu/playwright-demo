@@ -19,7 +19,7 @@ test.describe('Kong Service Creation ', () => {
             let serviceId;
 
             logger.info('STEP1:🚀Navigating to Service page' + urlNewService);
-            await sp.goto(urlNewService);
+            await sp.goto('/services/create?cta=new-user');
 
             logger.info('STEP2:⌨️create a norml service');
             const response = await sp.createService(data);

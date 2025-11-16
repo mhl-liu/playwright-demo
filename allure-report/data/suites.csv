@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","10686","should create service successfully - create my-service2 [#2]","chromium","Sat Nov 15 20:09:51 CST 2025","passed","Sat Nov 15 20:10:01 CST 2025","Kong Service Creation ","service/service_create.spec.js","",""
+"","6254","should create route successfully - create route with valid path / [#1]","chromium","Sat Nov 15 20:09:20 CST 2025","passed","Sat Nov 15 20:09:26 CST 2025","Kong Service add a route","service/route_create.spec.js","",""
+"","13135","should create service successfully - create my-service1 [#1]","chromium","Sat Nov 15 20:09:46 CST 2025","passed","Sat Nov 15 20:09:59 CST 2025","Kong Service Creation ","service/service_create.spec.js","",""
+"","7460","should create route successfully - create route with specific method [#2]","chromium","Sat Nov 15 20:09:20 CST 2025","passed","Sat Nov 15 20:09:27 CST 2025","Kong Service add a route","service/route_create.spec.js","",""

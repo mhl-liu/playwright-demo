@@ -107,9 +107,11 @@ export class BasePage {
     * @param {string} desc - Description for logging
     * @returns {string}  'invisible' | 'disabled' | 'done' | 'error' 
     */
-    async click(locator, desc = 'click element') {
+    async click(locator, desc = 'click element', timeout = 10000) {
         try {
             logger.info(`🖱️ Clicking element: ${desc || locator}`);
+            await this.waitForVisible(locator, timeout);
+            await locator.scrollIntoViewIfNeeded();
             const visible = await locator.isVisible().catch(() => false);
             if (!visible) {
                 logger.warn(`❌ ${desc} not visible, skipping click`);
@@ -137,9 +139,11 @@ export class BasePage {
     * @param {string} desc - Description for logging
     * @returns {string}  'invisible' | 'done' | 'error' 
     */
-    async fill(locator, value, desc = 'fill a value') {
+    async fill(locator, value, desc = 'fill a value', timeout = 10000) {
         try {
             logger.info(`⌨️ Filling ${desc || locator} with value: ${value}`);
+            await this.waitForVisible(locator, timeout);
+            await locator.scrollIntoViewIfNeeded();
             const visible = await locator.isVisible().catch(() => false);
             if (!visible) {
                 logger.warn(`❌ ${desc || locator} not visible, skipping fill`);
@@ -161,7 +165,7 @@ export class BasePage {
      * @param {string} desc - Description for logging
      * @returns {Promise<string|null>} - Returns the text of the locator or null if failed
      */
-    async getText(locator, desc = 'element', timeout = 5000) {
+    async getText(locator, desc = 'element', timeout = 10000) {
         let text;
 
         try {

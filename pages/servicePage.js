@@ -29,8 +29,8 @@ export class ServicePage extends BasePage {
     async fillServiceForm(data) {
         try {
             logger.info(`🚀 filling the form ${data.name}`);
-            if (data.name) this.fill(this.nameInput, data.name, 'Service Name');
-            if (data.url) this.fill(this.fullURLInput, data.url, 'Service URL');
+            if (data.name) await this.fill(this.nameInput, data.name, 'Service Name');
+            if (data.url) await this.fill(this.fullURLInput, data.url, 'Service URL');
         } catch (error) {
             logger.error(`❌ Failed to fill the form: ${error}`);
             throw error;

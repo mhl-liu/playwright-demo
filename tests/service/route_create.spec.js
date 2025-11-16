@@ -47,7 +47,7 @@ test.describe('Kong Service add a route', () => {
 
     const dataset = rawData.validCases
     for (const [i, data] of dataset.entries()) {
-        test(`should create service successfully - ${data.testcasename} [#${i + 1}]`, async ({ page, request }) => {
+        test(`should create route successfully - ${data.testcasename} [#${i + 1}]`, async ({ page, request }) => {
 
             logger.info('STEP1:🖱️ clicking new route tab');
             await sdp.clickRouteTab();

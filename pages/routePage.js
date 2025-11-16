@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { logger } from '../utils/logger.js';
 import { BasePage } from './basePage.js';
 
@@ -27,20 +28,22 @@ export class RoutePage extends BasePage {
     * input method in the list
     */
     async inputAMethod(method) {
-        const methodSelectButtonStatus = this.click(this.methodSelectButton, 'select method button');
+        const methodSelectButtonStatus = await this.click(this.methodSelectButton, 'select method button');
         if (methodSelectButtonStatus === 'done') {
-            return this.fill(this.methodInput, method, 'input method value');
+            logger.info('✅ method select has been displayed');
+            return await this.fill(this.methodInput, method, 'input method value');
         }
-        return "error"
+        logger.info(`❌ failed in displaying method select list,status is: ${methodSelectButtonStatus}`);
+        return "error";
     }
 
     /**
     * select post from the list as the method 
     */
     async seclectPostMethod() {
-        const methodSelectButtonStatus = this.click(this.methodSelectButton);
+        const methodSelectButtonStatus = await this.click(this.methodSelectButton);
         if (methodSelectButtonStatus === 'done') {
-            return this.click(this.postSelectButton, "Select Post as a method");
+            await this.click(this.postSelectButton, "Select Post as a method");
         }
         return "error"
     }
@@ -49,7 +52,7 @@ export class RoutePage extends BasePage {
     * click 'save Route' button in route detail page
     */
     async clickSaveRouteButton() {
-        return this.click(this.saveRouteButton, "Save route");
+        return await this.click(this.saveRouteButton, "Save route");
     }
 
 
@@ -62,9 +65,9 @@ export class RoutePage extends BasePage {
     async fillRouteForm(data) {
         try {
             logger.info(`🚀 filling the route form `);
-            if (data.name) this.fill(this.nameInput, data.name, 'Name Value');
-            if (data.path) this.fill(this.pathInput, data.path, 'Path Value');
-            if (data.host) this.fill(this.hostInput, data.host, 'Host Value');
+            if (data.name) await this.fill(this.nameInput, data.name, 'Name Value');
+            if (data.path) await this.fill(this.pathInput, data.path, 'Path Value');
+            if (data.host) await this.fill(this.hostInput, data.host, 'Host Value');
             if (data.method) {
                 await this.inputAMethod(data.method);
                 await this.sendKey('ArrowDown');
