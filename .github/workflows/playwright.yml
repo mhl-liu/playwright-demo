@@ -46,20 +46,26 @@ jobs:
           done
           echo "Kong did NOT start properly!"
           exit 1
+      
 
       - name: Wait for Kong Manager UI (8002)
         run: |
           echo "Waiting for Kong Manager UI..."
-          for i in {1..40}; do
-            if curl -s http://localhost:8002 | grep -q DOCTYPE; then
-              echo "Kong Manager is ready!"
+          for i in {1..60}; do
+            HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" http://localhost:8002)
+            if [ "$HTTP_STATUS" -eq 200 ]; then
+              echo "Kong Manager UI ready!"
               exit 0
             fi
-            echo "Waiting for Kong Manager... ($i)"
-            sleep 3
+            echo "Waiting for Kong Manager UI... ($i)"
+            sleep 5
           done
           echo "Kong Manager UI did NOT become ready!"
           exit 1
+          
+
+
+
 
       # 7. Run Playwright tests (without opening Allure UI)
       - name: Run Playwright Tests
