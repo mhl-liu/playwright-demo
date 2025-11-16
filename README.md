@@ -33,10 +33,15 @@ playwright-demo/
 ├─ logs/                     # logs for debugging
 
  ├─ tests/
+ 
  │  ├─ service/                  # Service related test cases
+ 
  │  └─ data/                     # Test data JSON files
+ 
  ├─ pages/                       # Page object classes
+ 
  ├─ utils/                       # Logger, global config, helper functions
+ 
  ├─ playwright.config.js          # Playwright configuration
 
 ├─ .env       # config test environment
@@ -98,11 +103,6 @@ npm run test:allure
   await sp.goto();
   await sp.createService(data.validCases[0]);
 
-## 🎯 CI/CD Integration
-
-- GitHub Actions workflow can be used to run the tests on push or pull request.
-- Allure reports and screenshots can be collected in CI.
-
 ## ⚙️ Configuration
 
 - `utils/globalConfig.js` contains global variables, e.g.:
@@ -120,7 +120,12 @@ export const config = {
   - **Browser settings** (headless, viewport size, device emulation)
   - **Retries** for failed tests
   - **Reporters** and screenshot/video capture
+    
+## 🎯 CI/CD Integration
 
+- GitHub Actions workflow can be used to run the tests on push or pull request.
+- Allure reports and screenshots can be collected in CI.
+- 
 ## 💡 Design Considerations
 
 - **Page Object Model (POM)**: Encapsulates page elements and actions for reusability and maintainability
