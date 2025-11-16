@@ -1,6 +1,7 @@
 {
   "name": "playwright-demo",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test:allure": "npx playwright test && allure generate allure-results --clean -o allure-report && allure open allure-report"
