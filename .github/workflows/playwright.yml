@@ -63,10 +63,6 @@ jobs:
           echo "Kong Manager UI did NOT become ready!"
           exit 1
           
-
-
-
-
       # 7. Run Playwright tests (without opening Allure UI)
       - name: Run Playwright Tests
         run: |
@@ -81,7 +77,15 @@ jobs:
           name: allure-report
           path: allure-report/
 
-      # 9. Stop Docker services
+      # 9. Deploy Allure report to GitHub Pages (可选)
+      - name: Deploy Allure Report to GitHub Pages
+        if: github.ref == 'refs/heads/main'  
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          npx gh-pages -d allure-report -b gh-pages      
+
+      # 10. Stop Docker services
       - name: Stop Docker services
         if: always()
         run: docker compose down

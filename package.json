@@ -16,6 +16,7 @@
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.4.2",
     "docdash": "^2.0.2",
+    "gh-pages": "^6.3.0",
     "jsdoc": "^4.0.5",
     "minami": "^1.2.3",
     "taffydb": "^2.7.3"
