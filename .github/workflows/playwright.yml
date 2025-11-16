@@ -51,7 +51,7 @@ jobs:
 
       # 7.Upload report as artifact
       - name: Upload Playwright Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-report
