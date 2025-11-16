@@ -135,7 +135,7 @@ export const config = {
 - **Fault Tolerance**: Wrapped operations like `safeClick`, `safeFill`, `safeGetText` to handle missing elements or DOM changes
 - **Environment Configuration**: `.env` + `playwright.config.js` allows flexible environment switching (local, staging, CI)
 - **Docs**: Providing Page Object methods  to make it easy for new developers or testers to understand and extend.
-- ![Screenshot 2025-11-16 at 2.23.44 PM](./Screenshot 2025-11-16 at 2.23.44 PM.png)
+- ![Screenshot]("./Screenshot 2025-11-16 at 2.23.44 PM.png")
 - **Allure Reports**: Integrated Allure report generation for detailed, visually rich test reports.
 - ![Screenshot 2025-11-15 at 8.11.00 PM](./Screenshot 2025-11-15 at 8.11.00 PM.png)
 
