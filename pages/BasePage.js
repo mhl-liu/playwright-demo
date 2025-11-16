@@ -195,9 +195,9 @@ export class BasePage {
     /**
      * Get text from a specific column of the first row in a table.
      * @param {Locator} locator - Playwright locator
-     * @param {number} [timeout=5000] - Timeout in milliseconds for waiting operations.
+     * @param {number} [timeout=10000] - Timeout in milliseconds for waiting operations.
      */
-    async waitForVisible(locator, timeout) {
+    async waitForVisible(locator, timeout = 10000) {
         try {
             logger.info(`⏳ Waiting for ${locator} to be visible`);
             await locator.waitFor({ state: 'visible', timeout });
@@ -269,70 +269,6 @@ export class BasePage {
             logger.error(`❌ Failed to send key ${keyVal}: ${error}`);
         }
     }
-
-
-    // // 验证页面上的表格
-    // async verifyTable({
-    //     page,
-    //     tableLocator,          // table 定位器，如：page.getByTestId('service-table')
-    //     expectedHeaders = [],  // 预期表头数组
-    //     expectedFirstRow = []  // 预期第一行数据数组
-    // }) {
-    //     try {
-    //         // 1⃣️ 等待表格加载可见
-    //         await tableLocator.waitFor({ state: 'visible', timeout: 5000 });
-
-    //         // 2⃣️ 验证表头
-    //         const headerCells = tableLocator.locator('thead th');
-    //         const headerCount = await headerCells.count();
-
-    //         const actualHeaders = [];
-    //         for (let i = 0; i < headerCount; i++) {
-    //             actualHeaders.push((await headerCells.nth(i).innerText()).trim());
-    //         }
-
-    //         if (JSON.stringify(actualHeaders) !== JSON.stringify(expectedHeaders)) {
-    //             return {
-    //                 status: 'failed',
-    //                 errorType: 'header mismatch',
-    //                 expected: expectedHeaders,
-    //                 actual: actualHeaders
-    //             };
-    //         }
-
-    //         // 3⃣️ 验证第一行
-    //         const firstRowCells = tableLocator.locator('tbody tr').first().locator('td');
-    //         const firstRowCount = await firstRowCells.count();
-
-    //         const actualFirstRow = [];
-    //         for (let i = 0; i < firstRowCount; i++) {
-    //             actualFirstRow.push((await firstRowCells.nth(i).innerText()).trim());
-    //         }
-
-    //         if (JSON.stringify(actualFirstRow) !== JSON.stringify(expectedFirstRow)) {
-    //             return {
-    //                 status: 'failed',
-    //                 errorType: 'first row mismatch',
-    //                 expected: expectedFirstRow,
-    //                 actual: actualFirstRow
-    //             };
-    //         }
-
-    //         return { status: 'passed' };
-
-    //     } catch (error) {
-    //         return { status: 'error', message: error.message };
-    //     }
-    // }
-
-
-
-
-
-
-
-
-
 
 
 }

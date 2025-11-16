@@ -25,7 +25,6 @@ test.describe('Kong Service add a route', () => {
         const sp = new ServicePage(page);
         const urlNewService = `${config.baseUrl}` + '/services/create?cta=new-user';
         const dataService = { "url": "http://www.baidu.com" };
-        // await sp.goto(urlNewService);
         await page.goto(urlNewService);
         const response = await sp.createService(dataService);
         await sp.expectSoft(response?.ok?.() ?? false, 'toBe', true, 'verify whether the response is ok')
@@ -47,7 +46,7 @@ test.describe('Kong Service add a route', () => {
 
     const dataset = rawData.validCases
     for (const [i, data] of dataset.entries()) {
-        test(`should create route successfully - ${data.testcasename} [#${i + 1}]`, async ({ page, request }) => {
+        test(`should create route successfully - ${data.testcasename} [#${i + 1}]`, async ({ browser, request }) => {
 
             logger.info('STEP1:🖱️ clicking new route tab');
             await sdp.clickRouteTab();
@@ -68,8 +67,6 @@ test.describe('Kong Service add a route', () => {
         });
 
     }
-
-
 
 
 });

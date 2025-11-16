@@ -1,0 +1,43 @@
+[2025-11-16 11:51:59] INFO: 🚀 Running before all tests to prepare the premise of testing route
+[2025-11-16 11:52:03] INFO: 🚀 Creating service
+[2025-11-16 11:52:03] INFO: 🚀 filling the form undefined
+[2025-11-16 11:52:03] INFO: ⌨️ Filling Service URL with value: http://www.baidu.com
+[2025-11-16 11:52:03] INFO: ⏳ Waiting for getByTestId('gateway-service-url-input') to be visible
+[2025-11-16 11:52:04] INFO: ✅ Service created successfully: http://localhost:8001/default/services
+[2025-11-16 11:52:04] INFO: ✅ verify whether the response is ok passed
+[2025-11-16 11:52:04] INFO: testttttthttp://localhost:8002/default/services/e02399f3-41d8-4cb0-a6a5-4aa37e80a37d
+[2025-11-16 11:52:05] INFO: ✅ verify whether the page has navigated to detail page passed
+[2025-11-16 11:52:05] INFO: current page url: http://localhost:8002/default/services/e02399f3-41d8-4cb0-a6a5-4aa37e80a37d
+[2025-11-16 11:52:05] INFO: 📦 Extracted result (regex match): e02399f3-41d8-4cb0-a6a5-4aa37e80a37d
+[2025-11-16 11:52:05] INFO: ✅ Created service:
+[2025-11-16 11:52:05] INFO: 🖱️ Clicking element: Add a route
+[2025-11-16 11:52:05] INFO: ⏳ Waiting for getByRole('button', { name: 'Add a Route' }) to be visible
+[2025-11-16 11:52:05] INFO: ✅ toBe passed
+[2025-11-16 11:52:05] INFO: ✅ current Page is ROUTE
+[2025-11-16 11:52:05] INFO: 🚀 filling the route form 
+[2025-11-16 11:52:05] INFO: ⌨️ Filling Path Value with value: /
+[2025-11-16 11:52:05] INFO: ⏳ Waiting for getByTestId('route-form-paths-input-1') to be visible
+[2025-11-16 11:52:06] INFO: 🖱️ Clicking element: Save route
+[2025-11-16 11:52:06] INFO: ⏳ Waiting for getByTestId('route-create-form-submit') to be visible
+[2025-11-16 11:52:06] INFO: ✅ toBe passed
+[2025-11-16 11:52:06] INFO: ✅ has navigared to route list page
+[2025-11-16 11:52:06] INFO: STEP1:🖱️ clicking new route tab
+[2025-11-16 11:52:06] INFO: 🖱️ Clicking element: switch to route tab
+[2025-11-16 11:52:06] INFO: ⏳ Waiting for getByTestId('service-routes') to be visible
+[2025-11-16 11:52:07] INFO: STEP2:🖱️ clicking new route button
+[2025-11-16 11:52:07] INFO: 🖱️ Clicking element: new route
+[2025-11-16 11:52:07] INFO: ⏳ Waiting for getByTestId('toolbar-add-route') to be visible
+[2025-11-16 11:52:07] INFO: STEP3: ⌨️ filling route form
+[2025-11-16 11:52:07] INFO: 🚀 filling the route form 
+[2025-11-16 11:52:07] INFO: ⌨️ Filling Path Value with value: /
+[2025-11-16 11:52:07] INFO: ⏳ Waiting for getByTestId('route-form-paths-input-1') to be visible
+[2025-11-16 11:52:07] INFO: 🖱️ Clicking element: Save route
+[2025-11-16 11:52:07] INFO: ⏳ Waiting for getByTestId('route-create-form-submit') to be visible
+[2025-11-16 11:52:08] INFO: STEP4: validate filled route name
+[2025-11-16 11:52:08] INFO: 🧭 Fetching the first row of a table
+[2025-11-16 11:52:08] INFO: ⏳ Waiting for locator('table.table.has-hover.is-clickable') to be visible
+[2025-11-16 11:52:08] INFO: ⏳ Waiting for locator('table.table.has-hover.is-clickable').locator('tbody tr').first().locator('[data-testid="name"]') to be visible
+[2025-11-16 11:52:08] INFO: 🧭 get cell's single value locator('table.table.has-hover.is-clickable').locator('tbody tr').first().locator('[data-testid="name"]')
+[2025-11-16 11:52:08] INFO: ⏳ Waiting for locator('table.table.has-hover.is-clickable').locator('tbody tr').first().locator('[data-testid="name"]') to be visible
+[2025-11-16 11:52:08] INFO: 📋 Got text from 1 row column: -
+[2025-11-16 11:52:08] INFO: ✅ toBe passed

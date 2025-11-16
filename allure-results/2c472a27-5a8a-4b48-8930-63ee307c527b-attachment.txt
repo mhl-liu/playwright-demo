@@ -1,0 +1,6 @@
+[2025-11-16 11:08:49] INFO: STEP1:🚀Navigating to Service pagehttp://localhost:8002/default/services/create?cta=new-user
+[2025-11-16 11:08:49] INFO: 🧭 Navigating to: /services/create?cta=new-user
+[2025-11-16 11:08:50] ERROR: ❌ Failed to navigate to /services/create?cta=new-user: Error: page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://localhost:8002/services/create?cta=new-user", waiting until "load"
+

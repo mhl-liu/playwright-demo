@@ -58,57 +58,5 @@ test.describe('Kong Service Creation ', () => {
 
     });
 
-    // const dataArray = [{ name: 1 }, { name: 2 }];
-    // logger.info("hhhh");
-    // logger.info(Array.isArray(dataset1.validCases));
-    // const dataset = raw_data.validCases
-    // for (const data of dataset) {
-    //     test(`should create service successfully ${data.name}`, async ({ page }) => {
-
-    //         const sp = new ServicePage(page);
-    //         const urlNewService = `${config.baseUrl}` + '/services/create?cta=new-user'
-    //         const date_now = DataProcessor.replaceDynamicValues("${date(MMM DD, YYYY, hh:mm A)}");
-    //         let serviceId;
-    //         await sp.goto(urlNewService);
-
-    // logger.info('create a norml service');
-    // const response = await sp.createService(data);
-
-    // logger.info('check the response after clicking "save" button');
-    // await sp.expectSoft(response.ok(), 'toBe', true, 'verify whether the response is ok')
-
-
-    // await sp.expectSoft(page, 'toHaveURL', /\/[a-z0-9_-]+\/services\/([a-z0-9-]+)$/, 'verify whether the page has navigated to detail page')
-    // logger.info('current page url: ' + page.url())
-
-    // serviceId = DataProcessor.extractByRegex(page.url(), /\/services\/([a-z0-9-]+)$/, 1)
-
-
-
-    // logger.info('Navigating to ServiceDetail page');
-    // const sdp = new ServiceDetailPage(page);
-
-    // logger.info('validate service name in the page');
-    // const actualServiceName = await sdp.getServiceName();
-    // const expectedServiceName = data.name;
-    // await sdp.expectSoft(actualServiceName?.trim() ?? '', 'toBe', expectedServiceName)
-
-
-    // logger.info('validate service id in the page');
-    // const actualServiceID = await sdp.getServiceID()
-    // const expectedServiceID = serviceId
-    // await sdp.expectSoft(actualServiceID?.trim() ?? '', 'toBe', expectedServiceID)
-
-    // logger.info('validate timestamp in the page');
-    // const actualCreated = await sdp.getCreatedAt()
-    // const expectedCreated = date_now
-    // await sdp.expectSoft(actualCreated?.trim() ?? '', 'toBe', expectedCreated)
-
-
-    //     });
-
-    // }
-
-
 
 });

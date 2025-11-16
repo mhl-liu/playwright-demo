@@ -1,0 +1,33 @@
+[2025-11-16 11:29:41] INFO: STEP1:🚀Navigating to Service pagehttp://localhost:8002/default/services/create?cta=new-user
+[2025-11-16 11:29:41] INFO: 🧭 Navigating to: /services/create?cta=new-user
+[2025-11-16 11:29:42] INFO: STEP2:⌨️create a norml service
+[2025-11-16 11:29:42] INFO: 🚀 Creating service
+[2025-11-16 11:29:42] INFO: 🚀 filling the form my-service1
+[2025-11-16 11:29:42] INFO: ⌨️ Filling Service Name with value: my-service1
+[2025-11-16 11:29:42] INFO: ⏳ Waiting for getByTestId('gateway-service-name-input') to be visible
+[2025-11-16 11:29:43] INFO: ⌨️ Filling Service URL with value: http://example.com
+[2025-11-16 11:29:43] INFO: ⏳ Waiting for getByTestId('gateway-service-url-input') to be visible
+[2025-11-16 11:29:44] INFO: ✅ Service created successfully: http://localhost:8001/default/services
+[2025-11-16 11:29:44] INFO: STEP3: check the response after clicking "save" button
+[2025-11-16 11:29:44] INFO: ✅ verify whether the response is ok passed
+[2025-11-16 11:29:44] INFO: testttttthttp://localhost:8002/default/services/34592755-fc6f-4111-861b-4292605f6cf9
+[2025-11-16 11:29:44] INFO: ✅ verify whether the page has navigated to detail page passed
+[2025-11-16 11:29:44] INFO: current page url: http://localhost:8002/default/services/34592755-fc6f-4111-861b-4292605f6cf9
+[2025-11-16 11:29:44] INFO: 📦 Extracted result (regex match): 34592755-fc6f-4111-861b-4292605f6cf9
+[2025-11-16 11:29:44] INFO: STEP4:🚀Navigating to ServiceDetail page
+[2025-11-16 11:29:44] INFO: STEP5:validate service name in the page
+[2025-11-16 11:29:44] INFO: ⏳ Waiting for getByTestId('name-plain-text') to be visible
+[2025-11-16 11:29:44] INFO: 📋 Got text from actualServiceName: my-service1
+[2025-11-16 11:29:44] INFO: ✅ toBe passed
+[2025-11-16 11:29:44] INFO: STEP6:validate service id in the page
+[2025-11-16 11:29:44] INFO: ⏳ Waiting for locator('.copy-text.monospace') to be visible
+[2025-11-16 11:29:44] INFO: 📋 Got text from actualServiceID: 34592755-fc6f-4111-861b-4292605f6cf9
+[2025-11-16 11:29:44] INFO: ✅ toBe passed
+[2025-11-16 11:29:44] INFO: STEP7:validate timestamp in the page
+[2025-11-16 11:29:44] INFO: ⏳ Waiting for getByTestId('created_at-date') to be visible
+[2025-11-16 11:29:45] INFO: 📋 Got text from actualCreateTime: Nov 16, 2025, 11:29 AM
+[2025-11-16 11:29:45] INFO: ✅ toBe passed
+[2025-11-16 11:29:45] INFO: STEP8: clean data
+[2025-11-16 11:29:45] INFO: 🧹 Deleting service at: http://localhost:8001/default/services/34592755-fc6f-4111-861b-4292605f6cf9
+[2025-11-16 11:29:45] INFO: Status: 204
+Response body: 

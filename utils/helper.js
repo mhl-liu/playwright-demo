@@ -3,15 +3,23 @@ import { expect } from '@playwright/test';
 import { logger } from './logger.js';
 
 export class DataProcessor {
+
+    /**
+     * create dynamic values for test cases 
+     */
     static replaceDynamicValues(input) {
-        //string
+        // If the input is a string, replace dynamic placeholders directly
         if (typeof input === 'string') {
             return input
+                // Replace all occurrences of ${uuid()} with a new UUID
                 .replace(/\$\{uuid\(\)\}/g, () => uuidv4())
+                // Replace all occurrences of ${date(...)} with a formatted date
+                // (.*?) = capture the format inside date(...)
+                // fmt = captured date format, passed to this.formatDate(fmt)
                 .replace(/\$\{date\((.*?)\)\}/g, (_, fmt) => this.formatDate(fmt));
         }
 
-        // object or array
+        // If the input is an object or array, convert it to string first
         const str = JSON.stringify(input);
         const replaced = str
             .replace(/\$\{uuid\(\)\}/g, () => uuidv4())
@@ -53,6 +61,7 @@ export class DataProcessor {
      * @param {string} description - Optional description for logging
      * @returns {string|null} The matched value or null
      */
+
     static extractByRegex(source, regex, groupIndex = 1, description = '') {
         if (typeof source !== 'string') {
             logger.error(`❌ ${description || 'extractByRegex'} failed: source is not a string`);

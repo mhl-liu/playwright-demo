@@ -1,0 +1,26 @@
+[2025-11-16 11:54:59] INFO: STEP1:🖱️ clicking new route tab
+[2025-11-16 11:54:59] INFO: 🖱️ Clicking element: switch to route tab
+[2025-11-16 11:54:59] INFO: ⏳ Waiting for getByTestId('service-routes') to be visible
+[2025-11-16 11:54:59] INFO: STEP2:🖱️ clicking new route button
+[2025-11-16 11:54:59] INFO: 🖱️ Clicking element: new route
+[2025-11-16 11:54:59] INFO: ⏳ Waiting for getByTestId('toolbar-add-route') to be visible
+[2025-11-16 11:54:59] INFO: STEP3: ⌨️ filling route form
+[2025-11-16 11:54:59] INFO: 🚀 filling the route form 
+[2025-11-16 11:54:59] INFO: 🖱️ Clicking element: select method button
+[2025-11-16 11:54:59] INFO: ⏳ Waiting for getByTestId('multiselect-trigger') to be visible
+[2025-11-16 11:54:59] INFO: ✅ method select has been displayed
+[2025-11-16 11:54:59] INFO: ⌨️ Filling input method value with value: PUT
+[2025-11-16 11:54:59] INFO: ⏳ Waiting for getByTestId('multiselect-dropdown-input') to be visible
+[2025-11-16 11:55:00] INFO: 🚀 sending the key: ArrowDown 
+[2025-11-16 11:55:00] INFO: 🚀 sending the key: Enter 
+[2025-11-16 11:55:00] INFO: 🖱️ Clicking element: Save route
+[2025-11-16 11:55:00] INFO: ⏳ Waiting for getByTestId('route-create-form-submit') to be visible
+[2025-11-16 11:55:00] INFO: STEP4: validate filled route name
+[2025-11-16 11:55:00] INFO: 🧭 Fetching the first row of a table
+[2025-11-16 11:55:00] INFO: ⏳ Waiting for locator('table.table.has-hover.is-clickable') to be visible
+[2025-11-16 11:55:05] ERROR: ❌ Element not visible: locator('table.table.has-hover.is-clickable')
+[2025-11-16 11:55:16] INFO: ⏳ Waiting for locator('table.table.has-hover.is-clickable').locator('tbody tr').first().locator('[data-testid="name"]') to be visible
+[2025-11-16 11:55:16] INFO: 🧭 get cell's single value locator('table.table.has-hover.is-clickable').locator('tbody tr').first().locator('[data-testid="name"]')
+[2025-11-16 11:55:16] INFO: ⏳ Waiting for locator('table.table.has-hover.is-clickable').locator('tbody tr').first().locator('[data-testid="name"]') to be visible
+[2025-11-16 11:55:16] INFO: 📋 Got text from 1 row column: -
+[2025-11-16 11:55:16] INFO: ✅ toBe passed
