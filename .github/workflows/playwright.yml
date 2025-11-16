@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       # 1. Checkout code
+      # 1. Checkout code
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # 2. Set up Node.js
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -24,40 +24,58 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # 4️. Install Playwright browser
+      # 4. Install Playwright dependencies & browsers
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      # 4. Start Docker Compose services
-      - name: Start Docker Compose
+      # 5. Start Docker Compose
+      - name: Start Kong with Docker Compose
         run: docker compose up -d
 
-      # 5. Run Playwright tests
-      - name: Wait for Kong Manager
+      # 6. Wait until Kong services are fully ready (not just port open)
+      - name: Wait for Kong Admin API (8001)
         run: |
-          echo "Waiting for Kong Manager (8002 8001)..."
-          for i in {1..30}; do
-            if nc -z localhost 8002 && nc -z localhost 8001; then
-              echo " Kong Manager is up!"
-              break
+          echo "Waiting for Kong Admin API..."
+          for i in {1..40}; do
+            if curl -s http://localhost:8001/status | grep -q '"database":{"reachable":true}'; then
+              echo "Kong Admin API is ready!"
+              exit 0
             fi
-            echo "Waiting..."
+            echo "Waiting for Kong... ($i)"
             sleep 3
           done
+          echo "Kong did NOT start properly!"
+          exit 1
 
-      # 6. Run Playwright tests
+      - name: Wait for Kong Manager UI (8002)
+        run: |
+          echo "Waiting for Kong Manager UI..."
+          for i in {1..40}; do
+            if curl -s http://localhost:8002 | grep -q DOCTYPE; then
+              echo "Kong Manager is ready!"
+              exit 0
+            fi
+            echo "Waiting for Kong Manager... ($i)"
+            sleep 3
+          done
+          echo "Kong Manager UI did NOT become ready!"
+          exit 1
+
+      # 7. Run Playwright tests (without opening Allure UI)
       - name: Run Playwright Tests
-        run: npm run test:allure
+        run: |
+          npx playwright test
+          npx allure generate allure-results --clean -o allure-report
 
-      # 7.Upload report as artifact
-      - name: Upload Playwright Report
+      # 8. Upload Allure report as artifacts
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-report
           path: allure-report/
 
-      # 8. Stop Docker services
+      # 9. Stop Docker services
       - name: Stop Docker services
-        if: always() 
+        if: always()
         run: docker compose down
