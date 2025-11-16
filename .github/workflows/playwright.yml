@@ -79,7 +79,7 @@ jobs:
 
       # 9. Deploy Allure report to GitHub Pages 
       - name: Deploy Allure Report
-        uses: peaceiris/actions-gh-pages@v7
+        uses: peaceiris/actions-gh-pages@v4
         with:
           deploy_key: ${{ secrets.SSH_KEY }}   
           publish_dir: ./allure-report
